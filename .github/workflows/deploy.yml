@@ -26,3 +26,9 @@ jobs:
 
       - name: Run tests
         run: mvn test
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: maven-build
+          path: target/*.jar
