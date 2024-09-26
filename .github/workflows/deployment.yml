@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: meu-microservico
+  name: projeto_github_actions
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: meu-microservico
+      app: projeto_github_actions
   template:
     metadata:
       labels:
-        app: meu-microservico
+        app: projeto_github_actions
     spec:
       containers:
-      - name: meu-microservico
+      - name: projeto_github_actions
         image: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:latest
         ports:
         - containerPort: 8080
@@ -21,11 +21,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: meu-microservico-service
+  name: projeto_github_actions-service
 spec:
   type: LoadBalancer
   selector:
-    app: meu-microservico
+    app: projeto_github_actions
   ports:
   - protocol: TCP
     port: 80
